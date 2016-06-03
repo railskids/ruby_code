@@ -1,20 +1,17 @@
 class RockPaperScissors
 
- #attr_accessor :player_throw
- @player_throw = nil
- def player_throw=(value) #this method will check to make sure the player does not input a empty value
-  if value == ""
-    raise "Value can't be blank, please enter one of the following values #{@throws}"
-  end
-  @player_throw = value.to_sym
+  def player_throw=(value) #this method will check to make sure the player does not input a empty value
+    if value == ""
+      raise "Value can't be blank, please enter one of the following values #{@throws}"
+    end
+    @player_throw = value.to_sym
   end
 
   def initialize
+    @player_throw = nil
     @beats = {rock: :scissors, paper: :rock, scissors: :paper}
     @throws = @beats.keys
   end
-
-
 
   def play_round(player_throw)
     self.player_throw = player_throw # by using self we are actually calling the player_throw method declared above
